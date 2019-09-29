@@ -1,0 +1,5 @@
+# --driver overlay -> built-in driver to manage the network
+# overlay network -> network that spans multiple Docker hosts each running an Engine
+# --internal -> restrict external access to the network
+
+docker network create --driver overlay --internal overmind

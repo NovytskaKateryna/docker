@@ -1,0 +1,4 @@
+# docker exec -> run a command in a running container
+# env -> print environment variables
+
+docker exec spawning-pool env

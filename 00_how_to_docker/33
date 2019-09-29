@@ -1,0 +1,3 @@
+# docker image ls -q -> list of all images ids
+
+docker image rm $(docker image ls -q)

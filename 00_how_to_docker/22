@@ -1,0 +1,6 @@
+# docker-machine ssh -> send commands to VMs
+# docker swarm join -> join Aiur to Char as worker 
+# docker swarm join-token -q worker -> get token to join as a worker
+# -q -> display only token
+
+docker-machine ssh Aiur "docker swarm join --token $(docker swarm join-token -q worker) $(docker-machine ip Char):2377"

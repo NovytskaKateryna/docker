@@ -1,0 +1,3 @@
+# --advertise-addr <ip> -> is the address other nodes in the Docker swarm use to connect into your node.
+
+docker swarm init --advertise-addr $(docker-machine ip Char)

@@ -1,0 +1,31 @@
+# docker run -dt --name Abathur -> Launch a container, named Abathur in background 
+# -v $HOME:/root -> bound container's /root folder to HOME folder on my host 
+# (HOME folder is mounted into a container, so that python script can be shared between host and container folders)
+# -p 3000:3000 -> bound container's 3000 port to host's 3000 port
+ 
+docker run -dt \
+--name Abathur \
+-v $HOME:/root \
+-p 3000:3000 \
+python:2-slim
+
+# docker exec Abathur -> install Flask in running container Abathur
+docker exec Abathur pip install Flask
+
+# write file with "Hello World" page, located in HOME folder (/root in container)
+docker exec Abathur echo 'from flask import Flask
+app = Flask(__name__)
+
+@app.route("/")
+def hello_world():
+    return "<h1>Hello, World!</h1>"' > $HOME/app.py
+
+# serve app by Flask
+# -e FLASK_APP=/root/main.py -> specify to Flask how to load the application
+# flask run --port -> run the app on port 3000
+# --host=0.0.0.0 -> this tells your operating system to listen on all public IPs
+docker exec -e FLASK_APP=/root/app.py Abathur flask run --port 3000 --host=0.0.0.0
+
+# test the app
+# via curl: curl $(docker-machine ip Char):3000
+# web browser: docker-machine ip Char -> <char_ip>:3000

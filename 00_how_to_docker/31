@@ -1,0 +1,3 @@
+# docker service ls -q -> list of all services ids
+
+docker service rm $(docker service ls -q)

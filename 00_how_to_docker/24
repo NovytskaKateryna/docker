@@ -1,0 +1,8 @@
+# by default service will be created in replicated mode with 1 replica
+
+docker service create \
+--name orbital-command \
+--network overmind \
+-e RABBITMQ_DEFAULT_USER=knovytsk \
+-e RABBITMQ_DEFAULT_PASS=knovytsk \
+rabbitmq

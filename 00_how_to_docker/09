@@ -1,0 +1,19 @@
+# run container: docker run --rm -it debian
+
+# update the APT package repository cache
+apt-get update
+
+# upgrade packages
+apt-get upgrade
+
+# install C compiler and git
+# -y -> automatic yes to prompts
+apt-get install -y build-essential git
+
+# install vim for testing : apt-get install -y vim 
+/* 
+#include <stdio.h>
+ void main() {
+	printf("hello from debian\n");
+}
+*/

@@ -1,0 +1,3 @@
+# docker container ls -q -> list of all containers ids
+
+docker container rm --force $(docker container ls -q) 

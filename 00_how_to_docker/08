@@ -1,0 +1,4 @@
+# --rm -> automatically remove the container when it exits
+# -it -> allocate pseudo-terminal in interactive mode
+
+docker run --rm -it alpine

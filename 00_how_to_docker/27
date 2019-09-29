@@ -1,0 +1,5 @@
+# docker service ps -q engineering-bay -> list the tasks of engineering-bay service
+# -q -> displays only IDs
+# head -n 1 -> take the 1st id
+
+docker service logs $(docker service ps -q engineering-bay | head -n 1)

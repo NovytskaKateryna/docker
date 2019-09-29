@@ -1,0 +1,14 @@
+# docker run -d -> run as background task
+# -e -> set env variables
+# --restart on-failure -> restart only if the container exits with a non-zero exit status
+# --volume hatchery:/var/lib/mysql -> mount volume hatchery into /var/lib/mysql in the container
+# /var/lib/mysql - default dir for mysql files
+# mysql:5.7 -> for compatibility, 
+# 	because the newer version of MySQL uses caching_sha2_password instead of mysql_native_password
+
+docker run -d \
+--name spawning-pool \
+-e MYSQL_ROOT_PASSWORD=Kerrigan \
+-e MYSQL_DATABASE=zerglings \
+--restart on-failure \
+--volume hatchery:/var/lib/mysql mysql:5.7

@@ -1,0 +1,7 @@
+docker service create \
+--name marines \
+--network overmind \
+--replicas 2 \
+-e OC_USERNAME=knovytsk \
+-e OC_PASSWD=knovytsk \
+42school/marine-squad

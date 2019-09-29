@@ -1,0 +1,3 @@
+docker ps
+
+# also: docker container ls

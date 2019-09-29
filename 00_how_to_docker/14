@@ -1,0 +1,9 @@
+# docker run -d -> run as background task
+# -p 8080:80 -> bound container's 80 port to 8000 port of virtual machine
+# --link spawning-pool:db -> add link to another container (sourcecontainername:containeraliasname)
+
+docker run -d \
+--name lair \
+-p 8080:80 \
+--link spawning-pool:db \
+wordpress
