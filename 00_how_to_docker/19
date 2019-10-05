@@ -27,5 +27,5 @@ def hello_world():
 docker exec -e FLASK_APP=/root/app.py Abathur flask run --port 3000 --host=0.0.0.0
 
 # test the app
-# via curl: curl $(docker-machine ip Char):3000
-# web browser: docker-machine ip Char -> <char_ip>:3000
+# via curl: curl $(docker-machine ip <machine>):3000
+# web browser: http://$(docker-machine ip <machine>):3000

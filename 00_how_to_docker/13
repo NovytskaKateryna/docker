@@ -2,3 +2,5 @@
 # env -> print environment variables
 
 docker exec spawning-pool env
+
+# alternative: docker inspect -f '{{.Config.Env}}' spawning-pool

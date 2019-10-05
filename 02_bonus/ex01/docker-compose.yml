@@ -1,0 +1,36 @@
+# docker-compose for wordpress, using MariaDB
+# MariaDB is a community-developed fork of the MySQL relational database management system
+version: "3"
+
+services:
+  wordpress:
+      image: wordpress
+      links:
+       - mariadb:db
+      environment:
+       - WORDPRESS_DB_PASSWORD=root
+       - WORDPRESS_DB_HOST=mariadb
+      ports:
+       - 8080:80
+  mariadb:
+      image: mariadb
+      environment:
+       - MYSQL_ROOT_PASSWORD=root
+       - MYSQL_DATABASE=db
+      volumes:
+       - /database:/var/lib/mysql
+  phpmyadmin:
+      image: phpmyadmin/phpmyadmin
+      environment:
+       - MYSQL_ROOT_PASSWORD=root
+      links:
+       - mariadb:db
+      ports:
+       - 8081:80
+
+# test
+# docker-compose up -d
+# access wordpress web portal: http://$(docker-machine ip <machine>):8080
+# access phpmyadmin: http://$(docker-machine ip <machine>):8081 
+# configure wordpress: -> username: root, password: root, email: test@mail.com
+# access phpmyadmin -> username: root, password: root

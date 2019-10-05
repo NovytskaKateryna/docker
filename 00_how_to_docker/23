@@ -3,3 +3,5 @@
 # --internal -> restrict external access to the network
 
 docker network create --driver overlay --internal overmind
+
+# check: docker network ls

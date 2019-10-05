@@ -5,3 +5,5 @@ docker service create \
 -e OC_USERNAME=knovytsk \
 -e OC_PASSWD=knovytsk \
 42school/marine-squad
+
+# docker service logs -f $(docker service ps -q --filter "name=marines.2" marines)

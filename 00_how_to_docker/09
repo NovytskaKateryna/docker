@@ -4,16 +4,9 @@
 apt-get update
 
 # upgrade packages
-apt-get upgrade
+apt-get upgrade -y
 
 # install C compiler and git
-# -y -> automatic yes to prompts
 apt-get install -y build-essential git
 
-# install vim for testing : apt-get install -y vim 
-/* 
-#include <stdio.h>
- void main() {
-	printf("hello from debian\n");
-}
-*/
+# install vim for testing : apt-get install -y vim  
